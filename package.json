@@ -12,6 +12,7 @@
     "react-dom": "^18.2.0",
     "react-geolocated": "^4.0.3",
     "react-live-clock": "^6.1.13",
+     "react-spinners": "^0.13.8",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "react-skycons": "^0.8.8",

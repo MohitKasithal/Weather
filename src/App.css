@@ -275,6 +275,16 @@ div#txt {
   color: #ffeb3b;
 }
 
+/* loader */
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 20px;
+}
+
 /*-- //Index-Page-Styling --*/
 
 /*-- Responsive Code --*/

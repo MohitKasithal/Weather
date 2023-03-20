@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import apiKeys from "./apiKeys";
 import Clock from "react-live-clock";
 import Forcast from "./forecast";
-
-import loader from "./images/Weathericon.gif";
+import { GridLoader } from "react-spinners";
 import ReactAnimatedWeather from "react-animated-weather";
 function CurrentLocation() {
   const dateBuilder = (d) => {
@@ -54,9 +53,7 @@ function CurrentLocation() {
   const [humidity, setHumidity] = useState();
   const [description, setDescription] = useState();
   const [icon, setIcon] = useState("CLEAR_DAY");
-  //   const [sunrise, setSunrise] = useState();
-  //   const [sunset, setSunset] = useState();
-  //   console.log("des>>>>>>", description);
+
   useEffect(() => {
     if (navigator.geolocation) {
       getPosition()
@@ -88,23 +85,15 @@ function CurrentLocation() {
       `${apiKeys.base}weather?lat=${lat}&lon=${lon}&units=metric&APPID=${apiKeys.key}`
     );
     const data = await api_call.json();
-    console.log("date from api>>>>>>>> ", data);
+
     const { name, main, coord } = data;
-    console.log(
-      "name is hare",
-      name,
-      "main is here>>>>",
-      main,
-      "coord is here>>",
-      coord
-    );
+
     setLat(coord.lat);
     setLon(coord.lon);
     setCity(name);
     setTemperatureC(Math.round(main.temp));
     setTemperatureF(Math.round(main.temp * 1.8 + 32));
     setHumidity(main.humidity);
-    // //   //  data.weather[0].main,
     setDescription(data.weather[0].main);
     setCountry(country);
 
@@ -179,8 +168,9 @@ function CurrentLocation() {
     );
   } else {
     return (
-      <>
-        <img src={loader} style={{ width: "50%", WebkitUserDrag: "none" }} />
+      <div className="loader">
+        <GridLoader color={"#36D7B7"} loading={true} />
+
         <h3 style={{ color: "white", fontSize: "22px", fontWeight: "600" }}>
           Detecting your location
         </h3>
@@ -188,7 +178,7 @@ function CurrentLocation() {
           Your current location wil be displayed on the App <br></br> & used for
           calculating Real time weather.
         </h3>
-      </>
+      </div>
     );
   }
 }
