@@ -9,7 +9,7 @@ function App() {
         <CurrentLocation />
       </div>
       <div className="footer-info">
-        | Developed by <b>Mohit</b> |
+        | Developed by <b>Mohit saini</b> |
       </div>
     </>
   );
