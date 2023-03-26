@@ -45,34 +45,40 @@ function CurrentLocation() {
 
   const [lat, setLat] = useState();
   const [lon, setLon] = useState();
-  const [errorMessage, setErrorMessage] = useState();
-  const [temperatureC, setTemperatureC] = useState();
-  const [temperatureF, setTemperatureF] = useState();
-  const [city, setCity] = useState();
-  const [country, setCountry] = useState();
-  const [humidity, setHumidity] = useState();
-  const [description, setDescription] = useState();
+  // eslint-disable-next-line
+  const [errorMessage, setErrorMessage] = useState("");
+  const [temperatureC, setTemperatureC] = useState("");
+  // const [temperatureF, setTemperatureF] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  // eslint-disable-next-line
+  const [humidity, setHumidity] = useState("");
+  const [description, setDescription] = useState("");
   const [icon, setIcon] = useState("CLEAR_DAY");
 
-  useEffect(() => {
-    if (navigator.geolocation) {
-      getPosition()
-        .then((position) => {
-          getWeather(position.coords.latitude, position.coords.longitude);
-        })
-        .catch((err) => {
-          getWeather(28.67, 77.22);
-          setErrorMessage(
-            "You have disabled location service. Allow 'This APP' to access your location. Your current location will be used for calculating Real time weather."
-          );
-        });
-    } else {
-      setErrorMessage("Geolocation not available");
-    }
+  useEffect(
+    () => {
+      if (navigator.geolocation) {
+        getPosition()
+          .then((position) => {
+            getWeather(position.coords.latitude, position.coords.longitude);
+          })
+          .catch((err) => {
+            getWeather(28.67, 77.22);
+            setErrorMessage(
+              "You have disabled location service. Allow 'This APP' to access your location. Your current location will be used for calculating Real time weather."
+            );
+          });
+      } else {
+        setErrorMessage("Geolocation not available");
+      }
 
-    const timerID = setInterval(() => getWeather(lat, lon), 600000);
-    return () => clearInterval(timerID);
-  }, []);
+      const timerID = setInterval(() => getWeather(lat, lon), 600000);
+      return () => clearInterval(timerID);
+    },
+    // eslint-disable-next-line
+    []
+  );
 
   const getPosition = (options) => {
     return new Promise(function (resolve, reject) {
@@ -92,7 +98,7 @@ function CurrentLocation() {
     setLon(coord.lon);
     setCity(name);
     setTemperatureC(Math.round(main.temp));
-    setTemperatureF(Math.round(main.temp * 1.8 + 32));
+    // setTemperatureF(Math.round(main.temp * 1.8 + 32));
     setHumidity(main.humidity);
     setDescription(data.weather[0].main);
     setCountry(country);
