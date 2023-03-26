@@ -12,6 +12,7 @@ function Forcast(props) {
     axios
       .get(
         `${apiKeys.base}weather?q=${
+          // eslint-disable-next-line
           city != "[object Object]" ? city : query
         }&units=metric&APPID=${apiKeys.key}`
       )
@@ -33,9 +34,13 @@ function Forcast(props) {
     animate: true,
   };
 
-  useEffect(() => {
-    search("Delhi");
-  }, []);
+  useEffect(
+    () => {
+      search("Delhi");
+    },
+    // eslint-disable-next-line
+    []
+  );
 
   return (
     <div className="forecast">
