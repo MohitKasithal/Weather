@@ -156,7 +156,7 @@ function CurrentLocation() {
           </div>
           <div className="date-time">
             <div className="dmy">
-              <div id="txt"></div>
+              {/* <div id="txt"></div> */}
               <div className="current-time">
                 <Clock format="HH:mm:ss" interval={1000} ticking={true} />
               </div>
