@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import apiKeys from "./apiKeys";
 import ReactAnimatedWeather from "react-animated-weather";
+import "./forecast.css";
 
 function Forcast(props) {
   const [query, setQuery] = useState("");

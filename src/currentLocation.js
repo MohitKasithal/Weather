@@ -38,7 +38,7 @@ function CurrentLocation() {
     return `${day}, ${date} ${month} ${year}`;
   };
   const defaults = {
-    color: "white",
+    color: "#e0d900",
     size: 112,
     animate: true,
   };
@@ -138,7 +138,7 @@ function CurrentLocation() {
 
   if (temperatureC) {
     return (
-      <React.Fragment>
+      <>
         <div className="city">
           <div className="title">
             <h2>{city}</h2>
@@ -170,7 +170,7 @@ function CurrentLocation() {
           </div>
         </div>
         <Forcast icon={icon} weather={description} />
-      </React.Fragment>
+      </>
     );
   } else {
     return (
