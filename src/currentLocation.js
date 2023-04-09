@@ -91,7 +91,6 @@ function CurrentLocation() {
       `${apiKeys.base}weather?lat=${lat}&lon=${lon}&units=metric&APPID=${apiKeys.key}`
     );
     const data = await api_call.json();
-
     const { name, main, coord } = data;
 
     setLat(coord.lat);
