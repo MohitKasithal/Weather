@@ -179,10 +179,10 @@ function CurrentLocation() {
         <h3 style={{ color: "white", fontSize: "22px", fontWeight: "600" }}>
           Detecting your location
         </h3>
-        <h3 style={{ color: "white", marginTop: "10px" }}>
+        <h5 style={{ color: "white", marginTop: "10px" }}>
           Your current location wil be displayed on the App <br></br> & used for
           calculating Real time weather.
-        </h3>
+        </h5>
       </div>
     );
   }

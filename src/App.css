@@ -192,3 +192,18 @@ h1 {
     width: 100%;
   }
 }
+@media screen and (max-width: 800px) {
+  .today-weather h5 {
+    font-size: 80%;
+  }
+  .search-box .search-bar {
+    font-size: 10px;
+  }
+  .loader {
+    padding: 5%;
+  }
+  .loader h3 {
+    font-size: 15px;
+    font-weight: 400;
+  }
+}
